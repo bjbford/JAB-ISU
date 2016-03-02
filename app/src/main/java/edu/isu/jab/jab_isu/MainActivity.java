@@ -14,6 +14,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import android.widget.Toast;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onButtonClick(View V){
+        Toast.makeText(MainActivity.this, "HELLO WORLD", Toast.LENGTH_SHORT).show();
     }
 
     //new code from IRDude hex2dec method
