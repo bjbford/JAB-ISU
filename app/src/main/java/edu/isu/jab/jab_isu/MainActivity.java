@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Object irdaService;
     Method irWrite;
     SparseArray<String> irData; //this and previous two lines for IRDude hex2dec method
-
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,6 +93,19 @@ public class MainActivity extends AppCompatActivity {
                 hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff 0000")); //0x8E or 1000 1110 in binary
 
         irInit();
+        //added from above onCreate(Bundle savedInstanceState)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
     }
 
     public void irInit() {
@@ -143,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         return irData;
     }
 
-    private static final int ROBOSAPIEN_FREQ = 38028;
+    //private static final int ROBOSAPIEN_FREQ = 38028;
 
 
 }
