@@ -19,8 +19,120 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="edu.isu.jab.jab_isu.MainActivity"
         tools:showIn="@layout/activity_main"
-        android:id="@+id/STATIONARY">
+        android:id="@+id/NAVIGATION">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="NAVIGATION"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    Burp   "
+            android:id="@+id/button"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickBurp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Whistle"
+            android:id="@+id/button2"
+            android:layout_alignTop="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickWhistle" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Five"
+            android:id="@+id/button3"
+            android:layout_alignTop="@+id/button2"
+            android:layout_alignParentEnd="true"
+            android:onClick="onButtonClickHighFive" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   Forward   "
+            android:id="@+id/buttonWalkForward"
+            android:layout_marginTop="66dp"
+            android:layout_below="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickForward" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Backward  "
+            android:id="@+id/buttonWalkBackward"
+            android:layout_below="@+id/buttonStop"
+            android:layout_alignStart="@+id/buttonWalkForward"
+            android:layout_marginTop="47dp"
+            android:onClick="onButtonClickBackward" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" STOP "
+            android:id="@+id/buttonStop"
+            android:layout_alignTop="@+id/buttonTurnLeft"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClick" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right"
+            android:id="@+id/buttonTurnRight"
+            android:layout_alignTop="@+id/buttonStop"
+            android:layout_alignParentEnd="true"
+            android:onClick="onButtonClickRight" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    Left    "
+            android:id="@+id/buttonTurnLeft"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickLeft" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On/Off"
+            android:id="@+id/toggleButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="41dp"
+            android:checked="false" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="edu.isu.jab.jab_isu.MainActivity"
+        tools:showIn="@layout/activity_main"
+        android:id="@+id/STATIONARY">
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,119 +225,6 @@
             android:layout_marginBottom="44dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="edu.isu.jab.jab_isu.MainActivity"
-        tools:showIn="@layout/activity_main"
-        android:id="@+id/NAVIGATION">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="NAVIGATION"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="    Burp   "
-            android:id="@+id/button"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickBurp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Whistle"
-            android:id="@+id/button2"
-            android:layout_alignTop="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickWhistle" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High Five"
-            android:id="@+id/button3"
-            android:layout_alignTop="@+id/button2"
-            android:layout_alignParentEnd="true"
-            android:onClick="onButtonClickHighFive" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   Forward   "
-            android:id="@+id/buttonWalkForward"
-            android:layout_marginTop="66dp"
-            android:layout_below="@+id/button2"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickForward" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Backward  "
-            android:id="@+id/button5"
-            android:layout_below="@+id/button6"
-            android:layout_alignStart="@+id/buttonWalkForward"
-            android:layout_marginTop="47dp"
-            android:onClick="onButtonClickBackward" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" STOP "
-            android:id="@+id/button6"
-            android:layout_alignTop="@+id/button8"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClick" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Right"
-            android:id="@+id/button7"
-            android:layout_alignTop="@+id/button6"
-            android:layout_alignParentEnd="true"
-            android:onClick="onButtonClickRight" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="    Left    "
-            android:id="@+id/button8"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickLeft" />
-
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="On/Off"
-            android:id="@+id/toggleButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="41dp"
-            android:checked="false" />
     </RelativeLayout>
 
     <RelativeLayout

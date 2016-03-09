@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,13 +20,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import android.widget.Toast;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.SparseArray;
-import android.view.View;
-import android.util.Log;
+import android.app.Activity;  //NOT USED
+import android.os.Bundle;  //NOT USED
+import android.view.MotionEvent;  //NOT USED
 import android.widget.ViewFlipper;
+
+
+import android.app.Activity; //NOT USED
+import android.os.Bundle;  //NOT USED
+import android.util.SparseArray;
+import android.view.View;  //NOT USED
+import android.util.Log;
+import android.widget.ViewFlipper;  //NOT USED
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,9 +57,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }*/
+    private ViewFlipper viewFlipper;
+    private float lastX;
+
 
     public boolean onTouchEvent(MotionEvent touchevent) {
-        switch (touchevent.getAction())
+        switch (touchevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = touchevent.getX();
                 break;
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Display previous screen.
         viewFlipper.showPrevious();
-    }
+                }
                 break;
         }
         return false;
