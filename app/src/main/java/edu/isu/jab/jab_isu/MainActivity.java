@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     Object irdaService;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //added from above onCreate(Bundle savedInstanceState)
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
