@@ -179,6 +179,26 @@ public class MainActivity extends AppCompatActivity {
     }
     //private static final int ROBOSAPIEN_FREQ = 38028;
 
+    View.OnClickListener mSendClickListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            if (!mCIR.hasIrEmitter()) {
+                Log.e(TAG, "No IR Emitter found\n");
+                return;
+            }
+
+            if (Build.VERSION.SDK_INT == 19) {
+                int lastIdx = Build.VERSION.RELEASE.lastIndexOf(".");
+                int VERSION_MR = Integer.valueOf(Build.VERSION.RELEASE.substring(lastIdx+1));
+                if (VERSION_MR < 3) {
+                    // Before version of Android 4.4.2
+                    mCIR.transmit(SAMSUNG_FREQ, SAMSUNG_POWER_TOGGLE_COUNT);
+                } else {
+                    // Later version of Android 4.4.3
+                    mCIR.transmit(SAMSUNG_FREQ, SAMSUNG_POWER_TOGGLE_DURATION);
+                }
+            }
+        }
+    };
 
     //BUTTON METHODS
 
