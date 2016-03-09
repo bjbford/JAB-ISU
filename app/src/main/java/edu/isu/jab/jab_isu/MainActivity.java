@@ -65,10 +65,37 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onButtonClick(View V){
-        Toast.makeText(MainActivity.this, "HELLO WORLD", Toast.LENGTH_SHORT).show();
+    public void onButtonClickStop(View V){
+        Toast.makeText(MainActivity.this, "I AM STOPPING", Toast.LENGTH_SHORT).show();
     }
 
+    public void onButtonClickForward(View V){
+        Toast.makeText(MainActivity.this, "MOVING FORWARD", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickBackward(View V){
+        Toast.makeText(MainActivity.this, "MOVING BACKWARD", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickLeft(View V){
+        Toast.makeText(MainActivity.this, "MOVING LEFT", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickRight(View V){
+        Toast.makeText(MainActivity.this, "MOVING RIGHT", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickWhistle(View V){
+        Toast.makeText(MainActivity.this, "*whistle*", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickBurp(View V){
+        Toast.makeText(MainActivity.this, "*burp* EXCUSE ME!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onButtonClickHighFive(View V){
+        Toast.makeText(MainActivity.this, "HIGHT FIVE!", Toast.LENGTH_SHORT).show();
+    }
     //new code from IRDude hex2dec method
 
     ConsumerIrManager mCIR;
