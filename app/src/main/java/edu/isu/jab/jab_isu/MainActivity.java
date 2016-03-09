@@ -25,11 +25,14 @@ import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
 import android.util.Log;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     Object irdaService;
     Method irWrite;
     SparseArray<String> irData; //this and previous two lines for IRDude hex2dec method
+
+    private int[] Robosapien_Count = new int[100];
     /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +181,28 @@ public class MainActivity extends AppCompatActivity {
         }
         return irData;
     }
-    //private static final int ROBOSAPIEN_FREQ = 39020;
+
+    private static final int ROBOSAPIEN_FREQ = 39020;
+
+    protected void setCount(String hex2dec){ //sets int array to the string that hex2dec returns 
+        Scanner tempParser = new Scanner(hex2dec);
+        int length = 0;
+        while(tempParser.hasNextInt()){ //temp to get length for the for loop used later
+            tempParser.nextInt();
+            length++;
+        }
+        Scanner parser = new Scanner(hex2dec);
+        parser.useDelimiter(",");
+
+        if(parser.hasNextInt()) {
+            parser.nextInt(); //skips first number which is frequency
+        }
+
+        for(int i=0;i<length;i++){
+            Robosapien_Count[i] = parser.nextInt();
+        }
+    }
+
 
     View.OnClickListener mSendClickListener = new View.OnClickListener() {
         public void onClick(View v) {
@@ -192,11 +216,12 @@ public class MainActivity extends AppCompatActivity {
                 int VERSION_MR = Integer.valueOf(Build.VERSION.RELEASE.substring(lastIdx+1));
                 if (VERSION_MR < 3) {
                     // Before version of Android 4.4.2
-                    mCIR.transmit(SAMSUNG_FREQ, SAMSUNG_POWER_TOGGLE_COUNT);
-                } else {
+                    mCIR.transmit(ROBOSAPIEN_FREQ, Robosapien_Count);
+                }
+                /*else {
                     // Later version of Android 4.4.3
                     mCIR.transmit(SAMSUNG_FREQ, SAMSUNG_POWER_TOGGLE_DURATION);
-                }
+                }*/
             }
         }
     };
