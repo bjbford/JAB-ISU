@@ -69,37 +69,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onButtonClickStop(View V){
-        Toast.makeText(MainActivity.this, "I AM STOPPING", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickForward(View V){
-        Toast.makeText(MainActivity.this, "MOVING FORWARD", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickBackward(View V){
-        Toast.makeText(MainActivity.this, "MOVING BACKWARD", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickLeft(View V){
-        Toast.makeText(MainActivity.this, "MOVING LEFT", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickRight(View V){
-        Toast.makeText(MainActivity.this, "MOVING RIGHT", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickWhistle(View V){
-        Toast.makeText(MainActivity.this, "*whistle*", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickBurp(View V){
-        Toast.makeText(MainActivity.this, "*burp* EXCUSE ME!", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onButtonClickHighFive(View V){
-        Toast.makeText(MainActivity.this, "HIGHT FIVE!", Toast.LENGTH_SHORT).show();
-    }
     //new code from IRDude hex2dec method
 
     ConsumerIrManager mCIR;
@@ -213,6 +182,42 @@ public class MainActivity extends AppCompatActivity {
 
     //BUTTON METHODS
 
+    //FIRST TEMPLATE (NAVIGATION)
+
+    //STOP
+    public void onButtonClickStop(View V){
+        Toast.makeText(MainActivity.this, "I AM STOPPING", Toast.LENGTH_SHORT).show();
+    }
+    //MOVE FORWARD
+    public void onButtonClickForward(View V){
+        Toast.makeText(MainActivity.this, "MOVING FORWARD", Toast.LENGTH_SHORT).show();
+    }
+    //MOVE BACKWARD
+    public void onButtonClickBackward(View V){
+        Toast.makeText(MainActivity.this, "MOVING BACKWARD", Toast.LENGTH_SHORT).show();
+    }
+    //MOVE LEFT
+    public void onButtonClickLeft(View V){
+        Toast.makeText(MainActivity.this, "MOVING LEFT", Toast.LENGTH_SHORT).show();
+    }
+    //MOVE RIGHT
+    public void onButtonClickRight(View V){
+        Toast.makeText(MainActivity.this, "MOVING RIGHT", Toast.LENGTH_SHORT).show();
+    }
+    //WHISTLE
+    public void onButtonClickWhistle(View V){
+        Toast.makeText(MainActivity.this, "*whistle*", Toast.LENGTH_SHORT).show();
+    }
+    //BURP
+    public void onButtonClickBurp(View V){
+        Toast.makeText(MainActivity.this, "*burp* EXCUSE ME!", Toast.LENGTH_SHORT).show();
+    }
+    //HIGH FIVE
+    public void onButtonClickHighFive(View V){
+        Toast.makeText(MainActivity.this, "HIGHT FIVE!", Toast.LENGTH_SHORT).show();
+    }
+
+    //SECOND TEMPLATE (STATIONARY MOVEMENT)
 
     // LEFT THROW
     public void onButtonClickLThrow(View V){
@@ -246,4 +251,7 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonClickLeanBack(View V){
         Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
     }
+
+    //THIRD TEMPLATE (UTILITIES)
+
 }
