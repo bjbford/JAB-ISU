@@ -3,6 +3,7 @@ package edu.isu.jab.jab_isu;
 import android.content.Context;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -177,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return irData;
     }
-    //private static final int ROBOSAPIEN_FREQ = 38028;
+    //private static final int ROBOSAPIEN_FREQ = 39020;
 
     View.OnClickListener mSendClickListener = new View.OnClickListener() {
         public void onClick(View v) {
