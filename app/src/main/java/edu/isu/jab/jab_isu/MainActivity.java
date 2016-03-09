@@ -70,10 +70,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //new code from IRDude hex2dec method
+
+    ConsumerIrManager mCIR;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //added from above onCreate(Bundle savedInstanceState)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        //end from above comment
+
+        ConsumerIrManager  mCIR = (ConsumerIrManager)getSystemService(CONSUMER_IR_SERVICE);
+        Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
+        PackageManager pm = getPackageManager();
+        Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " +
+                pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
+        FeatureInfo[] fi = pm.getSystemAvailableFeatures();
+        for (int i=0;i<fi.length;i++){
+            Log.e(TAG,"Feature: " + fi[i].name);
+        }
 
         irData = new SparseArray<String>();
         irData.put(
@@ -93,19 +119,14 @@ public class MainActivity extends AppCompatActivity {
                 hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff 0000")); //0x8E or 1000 1110 in binary
 
         irInit();
-        //added from above onCreate(Bundle savedInstanceState)
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        // Get a reference to the ConsumerIrManager
+        mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
 
+        setContentView(R.layout.consumer_ir);
+
+        // Set the OnClickListener for the button so we see when it's pressed.
+        findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
     }
 
     public void irInit() {
