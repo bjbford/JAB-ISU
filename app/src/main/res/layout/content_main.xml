@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/viewSwitcher"
+    android:id="@+id/viewFlipper"
     android:layout_above="@+id/toggleButton"
     android:layout_toEndOf="@+id/button8">
 
@@ -171,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="   Forward   "
-            android:id="@+id/button4"
+            android:id="@+id/buttonWalkForward"
             android:layout_marginTop="66dp"
             android:layout_below="@+id/button2"
             android:layout_centerHorizontal="true"
@@ -228,7 +228,6 @@
             android:checked="false" />
     </RelativeLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -241,16 +240,6 @@
         tools:showIn="@layout/activity_main"
         android:id="@+id/UTLITIES">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="    Lef    "
-            android:id="@+id/buttontemp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickLeft" />
-
     </RelativeLayout>
 
-</ViewSwitcher>
+</ViewFlipper>
