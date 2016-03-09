@@ -183,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
     }
     //private static final int ROBOSAPIEN_FREQ = 38028;
 
+
+    //BUTTON METHODS
+
+
     // LEFT THROW
     public void onButtonClickLThrow(View V){
         Toast.makeText(MainActivity.this, "LEFT THROW", Toast.LENGTH_SHORT).show();
