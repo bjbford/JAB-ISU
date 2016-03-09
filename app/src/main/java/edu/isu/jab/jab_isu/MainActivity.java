@@ -1,5 +1,8 @@
 package edu.isu.jab.jab_isu;
 
+import android.content.Context;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -205,8 +208,38 @@ public class MainActivity extends AppCompatActivity {
         }
         return irData;
     }
-
     //private static final int ROBOSAPIEN_FREQ = 38028;
 
-
+    // LEFT THROW
+    public void onButtonClickLThrow(View V){
+        Toast.makeText(MainActivity.this, "LEFT THROW", Toast.LENGTH_SHORT).show();
+    }
+    //RIGHT THROW
+    public void onButtonClickRThrow(View V){
+        Toast.makeText(MainActivity.this, "RIGHT THROW", Toast.LENGTH_SHORT).show();
+    }
+    //LEFT PICKUP
+    public void onButtonClickLPickUp(View V){
+        Toast.makeText(MainActivity.this, "LEFT PICKUP", Toast.LENGTH_SHORT).show();
+    }
+    //RIGHT PICKUP
+    public void onButtonClickRPickUp(View V){
+        Toast.makeText(MainActivity.this, "RIGHT PICKUP", Toast.LENGTH_SHORT).show();
+    }
+    //LEFT BUMP
+    public void onButtonClickLBump(View V){
+        Toast.makeText(MainActivity.this, "LEFT BUMP", Toast.LENGTH_SHORT).show();
+    }
+    //RIGHT BUMP
+    public void onButtonClickRBump(View V){
+        Toast.makeText(MainActivity.this, "RIGHT BUMP", Toast.LENGTH_SHORT).show();
+    }
+    //LEAN FORWARD
+    public void onButtonClickLeanForward(View V){
+        Toast.makeText(MainActivity.this, "LEAN FORWARD", Toast.LENGTH_SHORT).show();
+    }
+    //LEAN BACKWARD
+    public void onButtonClickLeanBack(View V){
+        Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
+    }
 }
