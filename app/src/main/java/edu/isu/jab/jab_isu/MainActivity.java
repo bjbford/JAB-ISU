@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import android.widget.Toast;
+import android.view.MotionEvent;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -53,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     public boolean onTouchEvent(MotionEvent touchevent) {
-        switch (touchevent.getAction())
+
+        float lastX = touchevent.getX();
+        switch (touchevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = touchevent.getX();
                 break;
