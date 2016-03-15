@@ -20,11 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import android.widget.Toast;
 import android.view.MotionEvent;
-
-import android.app.Activity;
-import android.os.Bundle;
 import android.util.SparseArray;
-import android.view.View;
 import android.util.Log;
 import android.widget.ViewFlipper;
 import java.util.Scanner;
@@ -56,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onTouchEvent(MotionEvent touchevent) {
 
         float lastX = touchevent.getX();
+        ViewFlipper viewFlipper = new ViewFlipper();
         switch (touchevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = touchevent.getX();
@@ -68,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
                     // If there aren't any other children, just break.
                     if (viewFlipper.getDisplayedChild() == 0)
-                    break;
 
                     // Next screen comes in from left.
                     viewFlipper.setInAnimation(this, R.anim.slide_in_from_left);
