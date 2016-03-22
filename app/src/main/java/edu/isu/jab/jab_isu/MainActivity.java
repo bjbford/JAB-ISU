@@ -112,23 +112,18 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     result = true;
-
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
                 return result;
             }
         }
-
         public void onSwipeRight() {
         }
-
         public void onSwipeLeft() {
         }
-
         public void onSwipeTop() {
         }
-
         public void onSwipeBottom() {
         }
     }
