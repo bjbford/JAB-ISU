@@ -250,16 +250,16 @@ public class MainActivity extends AppCompatActivity {
 
         irInit();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
 
             irInit4KitKat();
         }
-        /*else{
+        else{
             irInit4JellyBean();
         }*/
 
         // Get a reference to the ConsumerIrManager
-        //mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
+        mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
 
         //setContentView(R.layout.consumer_ir);
 
@@ -269,13 +269,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+    /*@TargetApi(Build.VERSION_CODES.KITKAT)
     public void irInit4KitKat() {
 
         // Get a reference to the ConsumerIrManager
         mCIR = (ConsumerIrManager)getSystemService(Context.CONSUMER_IR_SERVICE);
 
-    }
+    }*/
 
     public void irInit() {
         irdaService = this.getSystemService(Context.CONSUMER_IR_SERVICE);
