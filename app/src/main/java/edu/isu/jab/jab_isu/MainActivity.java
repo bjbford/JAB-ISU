@@ -154,14 +154,13 @@ public class MainActivity extends AppCompatActivity {
         //end from above comment
 
         ConsumerIrManager  mCIR = (ConsumerIrManager)getSystemService(CONSUMER_IR_SERVICE);
-        Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
+        //Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
         PackageManager pm = getPackageManager();
-        Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " +
-                pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
+        //Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " + pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
         FeatureInfo[] fi = pm.getSystemAvailableFeatures();
-        for (int i=0;i<fi.length;i++){
+        /*for (int i=0;i<fi.length;i++){
             Log.e(TAG,"Feature: " + fi[i].name);
-        }
+        }*/
 
         irData = new SparseArray<String>();
         irData.put(
@@ -185,10 +184,10 @@ public class MainActivity extends AppCompatActivity {
         // Get a reference to the ConsumerIrManager
         mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
 
-        setContentView(R.layout.consumer_ir);
+        //setContentView(R.layout.consumer_ir);
 
         // Set the OnClickListener for the button so we see when it's pressed.
-        findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
+        //findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
     }
 
     public void irInit() {
@@ -263,10 +262,10 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnClickListener mSendClickListener = new View.OnClickListener() {
         public void onClick(View v) {
-            if (!mCIR.hasIrEmitter()) {
+            /*if (!mCIR.hasIrEmitter()) {
                 Log.e(TAG, "No IR Emitter found\n");
                 return;
-            }
+            }*/
 
             if (Build.VERSION.SDK_INT == 19) {
                 int lastIdx = Build.VERSION.RELEASE.lastIndexOf(".");
