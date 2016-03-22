@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewFlipper viewFlipper;
     private float lastX;
 
-
+    /*
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
+    */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -323,11 +323,11 @@ public class MainActivity extends AppCompatActivity {
 
     // LEFT THROW
     public void onButtonClickLThrow(View V){
-        Toast.makeText(MainActivity.this, "LEFT THROW", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "LEFT THROWING", Toast.LENGTH_SHORT).show();
     }
     //RIGHT THROW
     public void onButtonClickRThrow(View V){
-        Toast.makeText(MainActivity.this, "RIGHT THROW", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "RIGHT THROWING", Toast.LENGTH_SHORT).show();
     }
     //LEFT PICKUP
     public void onButtonClickLPickUp(View V){
