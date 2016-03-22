@@ -90,7 +90,7 @@
             android:id="@+id/buttonStop"
             android:layout_alignTop="@+id/buttonTurnLeft"
             android:layout_centerHorizontal="true"
-            android:onClick="onButtonClick" />
+            android:onClick="onButtonClickStop" />
 
         <Button
             android:layout_width="wrap_content"
