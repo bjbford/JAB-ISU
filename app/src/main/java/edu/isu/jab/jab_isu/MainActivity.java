@@ -1,5 +1,6 @@
 package edu.isu.jab.jab_isu;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
@@ -252,9 +253,10 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
 
             irInit4KitKat();
-        }else{
-            irInit4JellyBean();
         }
+        /*else{
+            irInit4JellyBean();
+        }*/
 
         // Get a reference to the ConsumerIrManager
         //mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
