@@ -138,8 +138,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ViewFlipper viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         setContentView(R.layout.activity_main);
-
-        //added from above onCreate(Bundle savedInstanceState)
+        
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -151,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        //end from above comment
 
         ConsumerIrManager  mCIR = (ConsumerIrManager)getSystemService(CONSUMER_IR_SERVICE);
         //Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
