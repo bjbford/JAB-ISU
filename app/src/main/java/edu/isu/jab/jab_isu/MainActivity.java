@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         viewFlipper.setOutAnimation(this, R.anim.slide_out_to_left);
                     }
                     // Display previous screen.
-        viewFlipper.showPrevious();
+                    viewFlipper.showPrevious();
                 }
+                break;
+            default:
                 break;
         }
         return false;
