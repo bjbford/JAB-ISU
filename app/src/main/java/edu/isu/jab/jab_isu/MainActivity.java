@@ -175,56 +175,26 @@ public class MainActivity extends AppCompatActivity {
 
         irInit();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-
-            irInit4KitKat();
-        }
-        /*else{
-            irInit4JellyBean();
-        }*/
-
-        // Get a reference to the ConsumerIrManager
-        //mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
-
-        //setContentView(R.layout.consumer_ir);
-
         // Set the OnClickListener for the button so we see when it's pressed.
         //findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
     }
 
-
-
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    public void irInit4KitKat() {
-
+    public void irInit() {
         // Get a reference to the ConsumerIrManager
         mCIR = (ConsumerIrManager)getSystemService(Context.CONSUMER_IR_SERVICE);
-
-    }
-
-    public void irInit() {
-        irdaService = this.getSystemService(Context.CONSUMER_IR_SERVICE);
-        Class c = irdaService.getClass();
-        Class p[] = { String.class };
-        try {
-            irWrite = c.getMethod("write_irsend", p);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
     }
 
     public void irSend(View view) {
         String data = irData.get(view.getId());
         if (data != null) {
-            try {
-                irWrite.invoke(irdaService, data);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
+            String values[] = data.split(",");
+            int[] pattern = new int[values.length - 1];
+
+            for (int i = 0; i < pattern.length; i++) {
+                pattern[i] = Integer.parseInt(values[i + 1]);
             }
+
+            mCIR.transmit(Integer.parseInt(values[0]), pattern);
         }
     }
 
@@ -278,19 +248,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "No IR Emitter found\n");
                 return;
             }*/
-
-            if (Build.VERSION.SDK_INT == 19) {
-                int lastIdx = Build.VERSION.RELEASE.lastIndexOf(".");
-                int VERSION_MR = Integer.valueOf(Build.VERSION.RELEASE.substring(lastIdx+1));
-                if (VERSION_MR < 3) {
-                    // Before version of Android 4.4.2
-                    mCIR.transmit(ROBOSAPIEN_FREQ, Robosapien_Count);
-                }
-                /*else {
-                    // Later version of Android 4.4.3
-                    mCIR.transmit(SAMSUNG_FREQ, SAMSUNG_POWER_TOGGLE_DURATION);
-                }*/
-            }
+            mCIR.transmit(ROBOSAPIEN_FREQ, Robosapien_Count);
         }
     };
 
