@@ -71,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 if (lastX < currentX) {
 
                     // If there aren't any other children, just break.
-                    if (viewFlipper.getDisplayedChild() == 0)
+                    if (viewFlipper.getDisplayedChild() == 0) {
 
-                    // Next screen comes in from left.
-                    viewFlipper.setInAnimation(this, R.anim.slide_in_from_left);
+                        // Next screen comes in from left.
+                        viewFlipper.setInAnimation(this, R.anim.slide_in_from_left);
 
-                    // Current screen goes out from right.
-                    viewFlipper.setOutAnimation(this, R.anim.slide_out_to_right);
-
+                        // Current screen goes out from right.
+                        viewFlipper.setOutAnimation(this, R.anim.slide_out_to_right);
+                    }
                     // Display next screen.
                     viewFlipper.showNext();
                 }
@@ -87,15 +87,14 @@ public class MainActivity extends AppCompatActivity {
                 if (lastX > currentX) {
 
                     // If there is a child (to the left), kust break.
-                    if (viewFlipper.getDisplayedChild() == 1)
-                    break;
+                    if (viewFlipper.getDisplayedChild() == 1) {
 
-                    // Next screen comes in from right.
-                    viewFlipper.setInAnimation(this, R.anim.slide_in_from_right);
+                        // Next screen comes in from right.
+                        viewFlipper.setInAnimation(this, R.anim.slide_in_from_right);
 
-                    // Current screen goes out from left.
-                    viewFlipper.setOutAnimation(this, R.anim.slide_out_to_left);
-
+                        // Current screen goes out from left.
+                        viewFlipper.setOutAnimation(this, R.anim.slide_out_to_left);
+                    }
                     // Display previous screen.
         viewFlipper.showPrevious();
                 }
