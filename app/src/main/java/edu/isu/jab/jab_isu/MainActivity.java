@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            /*case MotionEvent.ACTION_DOWN:
                 lastX = touchevent.getX();
-                break;
-            case MotionEvent.ACTION_UP:
+//                break;*/
+            case MotionEvent.ACTION_SCROLL:
                 float currentX = touchevent.getX();
 
                 // Handling left to right screen swap.
