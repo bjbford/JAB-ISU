@@ -39,23 +39,7 @@ public class MainActivity extends AppCompatActivity {
     SparseArray<String> irData; //this and previous two lines for IRDude hex2dec method
 
     private int[] Robosapien_Count = new int[100];
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }*/
+    
     private ViewFlipper viewFlipper;
     private float lastX;
 
