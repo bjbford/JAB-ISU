@@ -1,5 +1,6 @@
 package edu.isu.jab.jab_isu;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
@@ -9,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,10 +21,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import android.widget.Toast;
-import android.view.MotionEvent;
-import android.util.SparseArray;
-import android.util.Log;
+import android.app.Activity;  //NOT USED
+import android.os.Bundle;  //NOT USED
+import android.view.MotionEvent;  //NOT USED
 import android.widget.ViewFlipper;
+import android.app.Activity; //NOT USED
+import android.os.Bundle;  //NOT USED
+import android.util.SparseArray;
+import android.view.View;  //NOT USED
+import android.util.Log;
+import android.widget.ViewFlipper;  //NOT USED
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }*/
+    private ViewFlipper viewFlipper;
+    private float lastX;
 
     public boolean onTouchEvent(MotionEvent touchevent) {
-
-        float lastX = touchevent.getX();
-        ViewFlipper viewFlipper = new ViewFlipper();
         switch (touchevent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = touchevent.getX();
@@ -91,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Display previous screen.
         viewFlipper.showPrevious();
-    }
+                }
                 break;
         }
         return false;
@@ -128,8 +135,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ViewFlipper viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         setContentView(R.layout.activity_main);
-
-        //added from above onCreate(Bundle savedInstanceState)
+        
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -141,17 +147,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        //end from above comment
 
         ConsumerIrManager  mCIR = (ConsumerIrManager)getSystemService(CONSUMER_IR_SERVICE);
-        Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
+        //Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
         PackageManager pm = getPackageManager();
-        Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " +
-                pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
+        //Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " + pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
         FeatureInfo[] fi = pm.getSystemAvailableFeatures();
-        for (int i=0;i<fi.length;i++){
+        /*for (int i=0;i<fi.length;i++){
             Log.e(TAG,"Feature: " + fi[i].name);
-        }
+        }*/
 
         irData = new SparseArray<String>();
         irData.put(
@@ -172,17 +176,35 @@ public class MainActivity extends AppCompatActivity {
 
         irInit();
 
-        // Get a reference to the ConsumerIrManager
-        mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
 
-        setContentView(R.layout.consumer_ir);
+            irInit4KitKat();
+        }
+        /*else{
+            irInit4JellyBean();
+        }*/
+
+        // Get a reference to the ConsumerIrManager
+        //mCIR = (ConsumerIrManager) this.getSystemService(Context.CONSUMER_IR_SERVICE);
+
+        //setContentView(R.layout.consumer_ir);
 
         // Set the OnClickListener for the button so we see when it's pressed.
-        findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
+        //findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
+    }
+
+
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public void irInit4KitKat() {
+
+        // Get a reference to the ConsumerIrManager
+        mCIR = (ConsumerIrManager)getSystemService(Context.CONSUMER_IR_SERVICE);
+
     }
 
     public void irInit() {
-        irdaService = this.getSystemService("irda");
+        irdaService = this.getSystemService(Context.CONSUMER_IR_SERVICE);
         Class c = irdaService.getClass();
         Class p[] = { String.class };
         try {
@@ -253,10 +275,10 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnClickListener mSendClickListener = new View.OnClickListener() {
         public void onClick(View v) {
-            if (!mCIR.hasIrEmitter()) {
+            /*if (!mCIR.hasIrEmitter()) {
                 Log.e(TAG, "No IR Emitter found\n");
                 return;
-            }
+            }*/
 
             if (Build.VERSION.SDK_INT == 19) {
                 int lastIdx = Build.VERSION.RELEASE.lastIndexOf(".");
@@ -314,11 +336,11 @@ public class MainActivity extends AppCompatActivity {
 
     // LEFT THROW
     public void onButtonClickLThrow(View V){
-        Toast.makeText(MainActivity.this, "LEFT THROW", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "LEFT THROWING", Toast.LENGTH_SHORT).show();
     }
     //RIGHT THROW
     public void onButtonClickRThrow(View V){
-        Toast.makeText(MainActivity.this, "RIGHT THROW", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "RIGHT THROWING", Toast.LENGTH_SHORT).show();
     }
     //LEFT PICKUP
     public void onButtonClickLPickUp(View V){
