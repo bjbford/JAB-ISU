@@ -19,7 +19,138 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="edu.isu.jab.jab_isu.MainActivity"
         tools:showIn="@layout/activity_main"
-        android:id="@+id/NAVIGATION">
+        android:id="@+id/NAVIGATION"
+        android:background="#f90000">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="118dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/leftLayout">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Burp   "
+                    android:id="@+id/button"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignParentStart="true"
+                    android:onClick="onButtonClickBurp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="    Left    "
+                    android:id="@+id/buttonTurnLeft"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:onClick="onButtonClickLeft"
+                    android:background="#90a6f0" />
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On/Off"
+                    android:id="@+id/toggleButton"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="41dp"
+                    android:checked="false"
+                    android:background="#73d609" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="121dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/middleLayout"
+                android:weightSum="1">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Whistle"
+                    android:id="@+id/button2"
+                    android:layout_alignTop="@+id/button"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="onButtonClickWhistle" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="   Forward   "
+                    android:id="@+id/buttonWalkForward"
+                    android:layout_marginTop="66dp"
+                    android:layout_below="@+id/button2"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="onButtonClickForward"
+                    android:background="#90a6f0" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="121dp"
+                    android:text=" STOP "
+                    android:id="@+id/buttonStop"
+                    android:layout_alignTop="@+id/buttonTurnLeft"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="onButtonClickStop"
+                    android:background="#f90606"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Backward  "
+                    android:id="@+id/buttonWalkBackward"
+                    android:layout_below="@+id/buttonStop"
+                    android:layout_alignStart="@+id/buttonWalkForward"
+                    android:layout_marginTop="47dp"
+                    android:onClick="onButtonClickBackward"
+                    android:background="#90a6f0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/rightLayout">
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High Five"
+                    android:id="@+id/button3"
+                    android:layout_alignTop="@+id/button2"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="onButtonClickHighFive" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Right"
+                    android:id="@+id/buttonTurnRight"
+                    android:layout_alignTop="@+id/buttonStop"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="onButtonClickRight"
+                    android:background="#90a6f0" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,99 +158,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="NAVIGATION"
             android:id="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="    Burp   "
-            android:id="@+id/button"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickBurp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Whistle"
-            android:id="@+id/button2"
-            android:layout_alignTop="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickWhistle" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High Five"
-            android:id="@+id/button3"
-            android:layout_alignTop="@+id/button2"
-            android:layout_alignParentEnd="true"
-            android:onClick="onButtonClickHighFive" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   Forward   "
-            android:id="@+id/buttonWalkForward"
-            android:layout_marginTop="66dp"
-            android:layout_below="@+id/button2"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickForward" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Backward  "
-            android:id="@+id/buttonWalkBackward"
-            android:layout_below="@+id/buttonStop"
-            android:layout_alignStart="@+id/buttonWalkForward"
-            android:layout_marginTop="47dp"
-            android:onClick="onButtonClickBackward" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" STOP "
-            android:id="@+id/buttonStop"
-            android:layout_alignTop="@+id/buttonTurnLeft"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickStop" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Right"
-            android:id="@+id/buttonTurnRight"
-            android:layout_alignTop="@+id/buttonStop"
-            android:layout_alignParentEnd="true"
-            android:onClick="onButtonClickRight" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="    Left    "
-            android:id="@+id/buttonTurnLeft"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickLeft" />
-
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="On/Off"
-            android:id="@+id/toggleButton"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="41dp"
-            android:checked="false" />
+            android:layout_alignParentStart="true" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -176,7 +217,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="R pickup"
+            android:text="R Pickup"
             android:id="@+id/button12"
             android:layout_above="@+id/button10"
             android:layout_alignStart="@+id/button11" />
@@ -185,7 +226,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  R bump "
+            android:text="  R Bump "
             android:id="@+id/button13"
             android:layout_alignTop="@+id/button14"
             android:layout_alignStart="@+id/button12" />
@@ -212,7 +253,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="L pickup"
+            android:text="L Pickup"
             android:id="@+id/button16"
             android:layout_alignTop="@+id/button12"
             android:layout_alignParentStart="true" />
@@ -239,6 +280,59 @@
         tools:showIn="@layout/activity_main"
         android:id="@+id/UTLITIES">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="168dp"
+                android:layout_height="fill_parent"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:id="@+id/button6" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="B"
+                    android:id="@+id/button7"
+                    android:layout_weight="1.12" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="176dp"
+                    android:text="C"
+                    android:id="@+id/button17" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="155dp"
+                    android:text="D"
+                    android:id="@+id/button18" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="1">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="371dp"
+                    android:text="Right"
+                    android:id="@+id/button5" />
+
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 
 </ViewFlipper>
