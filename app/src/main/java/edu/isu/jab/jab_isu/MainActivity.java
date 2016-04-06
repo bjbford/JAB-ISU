@@ -34,11 +34,6 @@ import android.widget.ViewFlipper;  //NOT USED
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-    Object irdaService;
-    Method irWrite;
-    SparseArray<String> irData; //this and previous two lines for IRDude hex2dec method
-
-    private int[] Robosapien_Count = new int[100];
     
     private ViewFlipper viewFlipper;
     private float lastX;
@@ -111,8 +106,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //new code from IRDude hex2dec method
-
+    //IR code below: some taken from IRDude methods (https://github.com/rngtng/IrDude/blob/master/src/com/rngtng/irdude/MainActivity.java)
+    Object irService;
+    Method irWrite;
+    SparseArray<String> irData;
     ConsumerIrManager mCIR;
 
     @Override
@@ -121,22 +118,22 @@ public class MainActivity extends AppCompatActivity {
         ViewFlipper viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         setContentView(R.layout.activity_main);
 
-        ConsumerIrManager  mCIR = (ConsumerIrManager)getSystemService(CONSUMER_IR_SERVICE);
-        //Log.e(TAG,"mCIR.hasIrEmitter(): " + mCIR.hasIrEmitter());
         PackageManager pm = getPackageManager();
-        //Log.e(TAG,"pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR): " + pm.hasSystemFeature(PackageManager.FEATURE_CONSUMER_IR));
         FeatureInfo[] fi = pm.getSystemAvailableFeatures();
-        /*for (int i=0;i<fi.length;i++){
-            Log.e(TAG,"Feature: " + fi[i].name);
-        }*/
 
         irData = new SparseArray<String>();
+
+        //walkForward button initialization
+        String buttonWalkForwardHex = "0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff 0000"; //0x86 or 1000 0110 in binary
+        String buttonWalkForwardDecimal = hex2dec(buttonWalkForwardHex);
+        String buttonWalkForwardDuration = count2duration(buttonWalkForwardDecimal);
+
+
         irData.put(
-                R.id.buttonWalkForward,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff 0000")); //0x86 or 1000 0110 in binary
+                R.id.buttonWalkForward,buttonWalkForwardDuration);
         irData.put(
                 R.id.buttonWalkBackward,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff 0000")); //0x87 or 1000 0111 in binary
+                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff 0000"));
         irData.put(
                 R.id.buttonTurnRight,
                 hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0fff 0000")); //0x80 or 1000 0110 in binary
@@ -148,16 +145,18 @@ public class MainActivity extends AppCompatActivity {
                 hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff 0000")); //0x8E or 1000 1110 in binary
 
         irInit();
-
-        // Set the OnClickListener for the button so we see when it's pressed.
-        //findViewById(R.id.send_button).setOnClickListener(mSendClickListener);
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public void irInit() {
         // Get a reference to the ConsumerIrManager
         mCIR = (ConsumerIrManager)getSystemService(Context.CONSUMER_IR_SERVICE);
     }
 
+    /**
+     * Transmits the correct duration pulse pattern at the specific frequency for the given button press
+     * @param view
+     */
     public void irSend(View view) {
         String data = irData.get(view.getId());
         if (data != null) {
@@ -172,6 +171,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Converts given hex codes to decimal/count pattern
+     * @param irData
+     * @return
+     *  Returns a new string of decimal/count pattern
+     */
     protected String hex2dec(String irData) {
         List<String> list = new ArrayList<String>(Arrays.asList(irData
                 .split(" ")));
@@ -194,38 +199,41 @@ public class MainActivity extends AppCompatActivity {
         return irData;
     }
 
-    private static final int ROBOSAPIEN_FREQ = 39020;
+    /**
+     * Converts decimal/count pattern to the duration needed for Android versions above 4.4.3
+     * @param countPattern
+     * @return
+     *  Returns a new string of duration pattern to be transmitted on a button press
+     */
+    protected String count2duration(String countPattern) {
+        List<String> list = new ArrayList<String>(Arrays.asList(countPattern.split(",")));
+        int frequency = Integer.parseInt(list.get(0));
+        int pulses = 1000000/frequency;
+        int count;
+        int duration;
 
-    protected void setCount(String hex2dec){ //sets int array to the string that hex2dec returns 
-        Scanner tempParser = new Scanner(hex2dec);
-        int length = 0;
-        while(tempParser.hasNextInt()){ //temp to get length for the for loop used later
-            tempParser.nextInt();
-            length++;
-        }
-        Scanner parser = new Scanner(hex2dec);
-        parser.useDelimiter(",");
+        //removes frequency
+        list.remove(0);
+        //removes 1st value
+        list.remove(0);
 
-        if(parser.hasNextInt()) {
-            parser.nextInt(); //skips first number which is frequency
+        for (int i = 0; i < list.size(); i++) {
+            count = Integer.parseInt(list.get(i));
+            duration = count * pulses;
+            list.set(i, Integer.toString(duration));
         }
 
-        for(int i=0;i<length;i++){
-            Robosapien_Count[i] = parser.nextInt();
+        String durationPattern = "";
+        for (String s : list) {
+            durationPattern += s + ",";
         }
+
+        return durationPattern;
     }
+    //End of IR code (some being from IRDude: https://github.com/rngtng/IrDude/blob/master/src/com/rngtng/irdude/MainActivity.java)
 
 
-    View.OnClickListener mSendClickListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            /*if (!mCIR.hasIrEmitter()) {
-                Log.e(TAG, "No IR Emitter found\n");
-                return;
-            }*/
-            mCIR.transmit(ROBOSAPIEN_FREQ, Robosapien_Count);
-        }
-    };
-
+    
     //BUTTON METHODS
 
     //FIRST TEMPLATE (NAVIGATION)
@@ -236,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //MOVE FORWARD
     public void onButtonClickForward(View V){
+        irSend(findViewById(R.id.buttonWalkForward));
         Toast.makeText(MainActivity.this, "MOVING FORWARD", Toast.LENGTH_SHORT).show();
     }
     //MOVE BACKWARD
