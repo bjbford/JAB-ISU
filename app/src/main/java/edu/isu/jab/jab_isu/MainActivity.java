@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //MOVE RIGHT
     public void onButtonClickRight(View V){
-        irSend(findViewById(R.id.buttonTurnRight))
+        irSend(findViewById(R.id.buttonTurnRight));
         Toast.makeText(MainActivity.this, "MOVING RIGHT", Toast.LENGTH_SHORT).show();
     }
     //WHISTLE
