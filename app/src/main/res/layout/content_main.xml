@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/viewFlipper"
+    android:id="@+id/viewFlipperA"
     android:layout_above="@+id/toggleButton"
     android:layout_toEndOf="@+id/button8">
 
@@ -120,6 +120,15 @@
             android:layout_alignParentStart="true"
             android:layout_marginBottom="41dp"
             android:checked="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switcher"
+            android:id="@+id/buttonSwitcher"
+            android:layout_alignTop="@+id/toggleButton"
+            android:layout_alignParentEnd="true"
+            android:onClick="onButtonClickSwitcher" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -225,6 +234,15 @@
             android:layout_marginBottom="44dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switcher"
+            android:id="@+id/button4"
+            android:layout_alignBottom="@+id/toggleButton2"
+            android:layout_alignParentEnd="true"
+            android:onClick="onButtonClickSwitcher" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -239,6 +257,15 @@
         tools:showIn="@layout/activity_main"
         android:id="@+id/UTLITIES">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switcher"
+            android:id="@+id/button5"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="43dp"
+            android:onClick="onButtonClickSwitcher" />
     </RelativeLayout>
 
 </ViewFlipper>
