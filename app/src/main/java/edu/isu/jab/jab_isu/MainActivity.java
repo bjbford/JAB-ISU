@@ -79,26 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
         irData = new SparseArray<String>();
 
-        //walkForward button initialization
-        String buttonWalkForwardHex = "0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff 0000"; //0x86 or 1000 0110 in binary
-        String buttonWalkForwardDecimal = hex2dec(buttonWalkForwardHex);
-        String buttonWalkForwardDuration = count2duration(buttonWalkForwardDecimal);
-
-
         irData.put(
-                R.id.buttonWalkForward,buttonWalkForwardDuration);
+                R.id.buttonWalkForward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff"));
         irData.put(
-                R.id.buttonWalkBackward,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff 0000"));
+                R.id.buttonWalkBackward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff"));
         irData.put(
-                R.id.buttonTurnRight,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0fff 0000")); //0x80 or 1000 0110 in binary
+                R.id.buttonTurnRight,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0fff")); //0x80 or 1000 0110 in binary
         irData.put(
-                R.id.buttonTurnLeft,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0fff 0000")); //0x88 or 1000 1000 in binary
+                R.id.buttonTurnLeft,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0fff")); //0x88 or 1000 1000 in binary
         irData.put(
-                R.id.buttonStop,
-                hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff 0000")); //0x8E or 1000 1110 in binary
+                R.id.buttonStop,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff")); //0x8E or 1000 1110 in binary
 
         irInit();
     }
@@ -128,10 +118,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Converts given hex codes to decimal/count pattern
+     * Converts given hex codes to correct special samsung IR pattern
      * @param irData
      * @return
-     *  Returns a new string of decimal/count pattern
+     *  Returns a new string of special samsung IR pattern
      */
     protected String hex2dec(String irData) {
         List<String> list = new ArrayList<String>(Arrays.asList(irData
@@ -148,43 +138,23 @@ public class MainActivity extends AppCompatActivity {
         frequency = (int) (1000000 / (frequency * 0.241246));
         list.add(0, Integer.toString(frequency));
 
-        irData = "";
-        for (String s : list) {
-            irData += s + ",";
+        //new code for special samsung formula (http://stackoverflow.com/questions/28794899/ir-emitter-and-android-5-0) to replace count2duration method
+        int[] irCode = new int[list.size()];
+
+        //starting at two to ignore frequency
+        for(int i=1;i<list.size();i++){
+            irCode[i] = Integer.parseInt(list.get(i));
+        }
+
+        for(int i=1;i<irCode.length;i++){
+            irCode[i] = (int) Math.ceil(irCode[i] * 26.27272727272727);
+        }
+
+        irData = Integer.toString(frequency) + ","; //grabs frequency
+        for (int i=1;i<irCode.length;i++) {
+            irData += Integer.toString(irCode[i]) + ",";
         }
         return irData;
-    }
-
-    /**
-     * Converts decimal/count pattern to the duration needed for Android versions above 4.4.3
-     * @param countPattern
-     * @return
-     *  Returns a new string of duration pattern to be transmitted on a button press
-     */
-    protected String count2duration(String countPattern) {
-        List<String> list = new ArrayList<String>(Arrays.asList(countPattern.split(",")));
-        int frequency = Integer.parseInt(list.get(0));
-        int pulses = 1000000/frequency;
-        int count;
-        int duration;
-
-        //removes frequency
-        list.remove(0);
-        //removes 1st value
-        list.remove(0);
-
-        for (int i = 0; i < list.size(); i++) {
-            count = Integer.parseInt(list.get(i));
-            duration = count * pulses;
-            list.set(i, Integer.toString(duration));
-        }
-
-        String durationPattern = "";
-        for (String s : list) {
-            durationPattern += s + ",";
-        }
-
-        return durationPattern;
     }
     //End of IR code (some being from IRDude: https://github.com/rngtng/IrDude/blob/master/src/com/rngtng/irdude/MainActivity.java)
 
