@@ -33,7 +33,7 @@
                 android:layout_width="80dp"
                 android:layout_height="128dp"
                 android:text="Left"
-                android:id="@+id/buttonLeft"
+                android:id="@+id/buttonTurnLeft"
                 android:layout_marginTop="120dp"
                 android:layout_marginLeft="48dp"
                 android:background="@drawable/leftarrow"
@@ -67,7 +67,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:id="@+id/buttonUp"
+                android:id="@+id/buttonWalkForward"
                 android:layout_marginTop="40dp"
                 android:text="Forward"
                 android:background="@drawable/uparrow"
@@ -85,7 +85,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:text="Backward"
-                android:id="@+id/buttonDown"
+                android:id="@+id/buttonWalkBackward"
                 android:background="@drawable/downarrow"
                 android:onClick="onButtonClickBackward" />
         </LinearLayout>
@@ -125,7 +125,7 @@
                 android:layout_width="80dp"
                 android:layout_height="128dp"
                 android:text="Right"
-                android:id="@+id/buttonRight"
+                android:id="@+id/buttonTurnRight"
                 android:layout_marginTop="120dp"
                 android:layout_marginRight="48dp"
                 android:background="@drawable/rightarrow"
