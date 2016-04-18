@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
     //STOP
     public void onButtonClickStop(View V){
+        irSend(findViewById(R.id.buttonStop));
         Toast.makeText(MainActivity.this, "I AM STOPPING", Toast.LENGTH_SHORT).show();
     }
     //MOVE FORWARD
@@ -175,14 +176,17 @@ public class MainActivity extends AppCompatActivity {
     }
     //MOVE BACKWARD
     public void onButtonClickBackward(View V){
+        irSend(findViewById(R.id.buttonWalkBackward));
         Toast.makeText(MainActivity.this, "MOVING BACKWARD", Toast.LENGTH_SHORT).show();
     }
     //MOVE LEFT
     public void onButtonClickLeft(View V){
+        irSend(findViewById(R.id.buttonTurnLeft));
         Toast.makeText(MainActivity.this, "MOVING LEFT", Toast.LENGTH_SHORT).show();
     }
     //MOVE RIGHT
     public void onButtonClickRight(View V){
+        irSend(findViewById(R.id.buttonTurnRight))
         Toast.makeText(MainActivity.this, "MOVING RIGHT", Toast.LENGTH_SHORT).show();
     }
     //WHISTLE
