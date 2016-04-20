@@ -6,35 +6,18 @@ import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.hardware.ConsumerIrManager;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import android.widget.Toast;
-import android.app.Activity;  //NOT USED
-import android.os.Bundle;  //NOT USED
-import android.view.MotionEvent;  //NOT USED
 import android.widget.ViewFlipper;
-import android.app.Activity; //NOT USED
-import android.os.Bundle;  //NOT USED
 import android.util.SparseArray;
-import android.view.View;  //NOT USED
-import android.util.Log;
-import android.widget.ViewFlipper;  //NOT USED
-import java.util.Scanner;
-
-import static android.view.MotionEvent.*;
 
 public class MainActivity extends AppCompatActivity {
     
