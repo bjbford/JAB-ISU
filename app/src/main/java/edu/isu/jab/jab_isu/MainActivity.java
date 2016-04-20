@@ -63,15 +63,40 @@ public class MainActivity extends AppCompatActivity {
         irData = new SparseArray<String>();
 
         irData.put(
-                R.id.buttonWalkForward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff"));
+                R.id.buttonWalkForward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0021 0021 0fff")); //0x86 or 1000 0110 in binary
         irData.put(
-                R.id.buttonWalkBackward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff"));
+                R.id.buttonWalkBackward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0fff")); //0x87 or 1000 0111 in binary
         irData.put(
                 R.id.buttonTurnRight,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0021 0fff")); //0x80 or 1000 0110 in binary
         irData.put(
                 R.id.buttonTurnLeft,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0fff")); //0x88 or 1000 1000 in binary
         irData.put(
                 R.id.buttonStop,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff")); //0x8E or 1000 1110 in binary
+        irData.put(
+                R.id.whistle,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0fff")); //0XCA or 1100 1010 in binary
+        irData.put(
+                R.id.burp,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0fff")); //0xC2 or 1100 0010 in binary
+        irData.put(
+                R.id.highFive,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xC4 or 1100 0100 in binary
+        irData.put(
+                R.id.powerButton,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xD1 or 1101 0001 in binary (POWER OFF)
+        irData.put(
+                R.id.leanForward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0082 0021 0fff")); //0xAD or 1010 1101 in binary
+        irData.put(
+                R.id.leanBackward,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0021 0021 0082 0021 0fff")); //0xA5 or 1010 0101 in binary
+        irData.put(
+                R.id.rightThrow,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0021 0021 0fff")); //0xA2 or 1010 0010 in binary
+        irData.put(
+                R.id.rightPickup,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xA4 or 1010 0100 in binary
+        irData.put(
+                R.id.rightBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xA1 or 1010 0001 in binary
+        irData.put(
+                R.id.leftThrow,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0fff")); //0xAA or 1010 1010 in binary
+        irData.put(
+                R.id.leftPickup,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xA9 or 1010 1001 in binary
+        irData.put(
+                R.id.leftBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xAC or 1010 1100 in binary
+        
 
         irInit();
     }
@@ -174,15 +199,18 @@ public class MainActivity extends AppCompatActivity {
     }
     //WHISTLE
     public void onButtonClickWhistle(View V){
+        irSend(findViewById(R.id.whistle));
         Toast.makeText(MainActivity.this, "*whistle*", Toast.LENGTH_SHORT).show();
     }
     //BURP
     public void onButtonClickBurp(View V){
+        irSend(findViewById(R.id.burp));
         Toast.makeText(MainActivity.this, "*burp* EXCUSE ME!", Toast.LENGTH_SHORT).show();
     }
     //HIGH FIVE
     public void onButtonClickHighFive(View V){
-        Toast.makeText(MainActivity.this, "HIGHT FIVE!", Toast.LENGTH_SHORT).show();
+        irSend(findViewById(R.id.highFive));
+        Toast.makeText(MainActivity.this, "HIGH FIVE!", Toast.LENGTH_SHORT).show();
     }
     //SWTICH VIEW
     public void onButtonClickSwitcher(View V){
@@ -200,34 +228,42 @@ public class MainActivity extends AppCompatActivity {
 
     // LEFT THROW
     public void onButtonClickLThrow(View V){
+        irSend(findViewById(R.id.leftThrow));
         Toast.makeText(MainActivity.this, "LEFT THROWING", Toast.LENGTH_SHORT).show();
     }
     //RIGHT THROW
     public void onButtonClickRThrow(View V){
+        irSend(findViewById(R.id.rightThrow));
         Toast.makeText(MainActivity.this, "RIGHT THROWING", Toast.LENGTH_SHORT).show();
     }
     //LEFT PICKUP
     public void onButtonClickLPickUp(View V){
+        irSend(findViewById(R.id.leftPickup));
         Toast.makeText(MainActivity.this, "LEFT PICKUP", Toast.LENGTH_SHORT).show();
     }
     //RIGHT PICKUP
     public void onButtonClickRPickUp(View V){
+        irSend(findViewById(R.id.rightPickup));
         Toast.makeText(MainActivity.this, "RIGHT PICKUP", Toast.LENGTH_SHORT).show();
     }
     //LEFT BUMP
     public void onButtonClickLBump(View V){
+        irSend(findViewById(R.id.leftBump));
         Toast.makeText(MainActivity.this, "LEFT BUMP", Toast.LENGTH_SHORT).show();
     }
     //RIGHT BUMP
     public void onButtonClickRBump(View V){
+        irSend(findViewById(R.id.rightBump));
         Toast.makeText(MainActivity.this, "RIGHT BUMP", Toast.LENGTH_SHORT).show();
     }
     //LEAN FORWARD
     public void onButtonClickLeanForward(View V){
+        irSend(findViewById(R.id.leanForward));
         Toast.makeText(MainActivity.this, "LEAN FORWARD", Toast.LENGTH_SHORT).show();
     }
     //LEAN BACKWARD
     public void onButtonClickLeanBack(View V){
+        irSend(findViewById(R.id.leanBackward));
         Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
     }
 
