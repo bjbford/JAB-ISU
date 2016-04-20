@@ -9,6 +9,7 @@
     android:layout_above="@+id/toggleButton"
     android:layout_toEndOf="@+id/button8">
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -92,9 +93,10 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="128dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/rightCol">
+            android:id="@+id/rightCol"
+            android:layout_gravity="center_vertical">
 
             <Button
                 android:layout_width="fill_parent"
@@ -126,7 +128,6 @@
 
     </LinearLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -154,9 +155,8 @@
             android:layout_height="wrap_content"
             android:text="  Lean Forward  "
             android:id="@+id/leanForward"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="102dp" />
+            android:layout_alignTop="@+id/rightThrow"
+            android:layout_centerHorizontal="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -164,9 +164,9 @@
             android:layout_height="wrap_content"
             android:text="Lean Backward"
             android:id="@+id/leanBackward"
+            android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/button9"
-            android:layout_gravity="center_vertical" />
+            android:layout_alignStart="@+id/leanForward" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -174,9 +174,8 @@
             android:layout_height="wrap_content"
             android:text="R Throw"
             android:id="@+id/rightThrow"
-            android:layout_alignBottom="@+id/button9"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="42dp" />
+            android:layout_above="@+id/rightPickup"
+            android:layout_alignStart="@+id/rightBump" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -184,8 +183,8 @@
             android:layout_height="wrap_content"
             android:text="R Pickup"
             android:id="@+id/rightPickup"
-            android:layout_above="@+id/button10"
-            android:layout_alignStart="@+id/button11" />
+            android:layout_above="@+id/leanBackward"
+            android:layout_alignStart="@+id/rightThrow" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -193,8 +192,8 @@
             android:layout_height="wrap_content"
             android:text="  R Bump "
             android:id="@+id/rightBump"
-            android:layout_alignTop="@+id/button14"
-            android:layout_alignStart="@+id/button12" />
+            android:layout_below="@+id/leanBackward"
+            android:layout_alignEnd="@+id/button17" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -202,8 +201,8 @@
             android:layout_height="wrap_content"
             android:text=" L Bump  "
             android:id="@+id/leftBump"
-            android:layout_below="@+id/button10"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/leanBackward"
+            android:layout_alignEnd="@+id/leftThrow" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -211,7 +210,8 @@
             android:layout_height="wrap_content"
             android:text="L Throw"
             android:id="@+id/leftThrow"
-            android:layout_alignTop="@+id/button11"
+            android:layout_alignBaseline="@+id/leanForward"
+            android:layout_alignBottom="@+id/leanForward"
             android:layout_alignParentStart="true" />
 
         <Button
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:text="L Pickup"
             android:id="@+id/leftPickup"
-            android:layout_alignTop="@+id/button12"
+            android:layout_above="@+id/leanBackward"
             android:layout_alignParentStart="true" />
 
         <Button
@@ -229,10 +229,10 @@
             android:layout_height="wrap_content"
             android:text="Page Right"
             android:id="@+id/button17"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/button9"
             android:layout_marginBottom="48dp"
-            android:onClick="onButtonClickSwitcher" />
+            android:onClick="onButtonClickSwitcher"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/leanForward" />
 
     </RelativeLayout>
 

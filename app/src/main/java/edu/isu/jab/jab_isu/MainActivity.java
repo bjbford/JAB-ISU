@@ -270,9 +270,16 @@ public class MainActivity extends AppCompatActivity {
 
     //THIRD TEMPLATE (UTILITIES)
 
-    //DANCE
-    public void onButtonClickDance(View V){
-        irSend(findViewById(R.id.dance));
-        Toast.makeText(MainActivity.this, "DANCE!!", Toast.LENGTH_SHORT).show();
+
+
+
+    //DEMO
+    public void onButtonClickAllDemo(View V){
+        Toast.makeText(MainActivity.this, "DEMOING!", Toast.LENGTH_SHORT).show();
+    }
+
+    //WAKE UP
+    public void onButtonClick(View V){
+        Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
     }
 }
