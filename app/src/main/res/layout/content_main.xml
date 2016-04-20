@@ -153,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  Lean Forward  "
-            android:id="@+id/button9"
+            android:id="@+id/leanForward"
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="102dp" />
@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lean Backward"
-            android:id="@+id/button10"
+            android:id="@+id/leanBackward"
             android:layout_centerVertical="true"
             android:layout_alignStart="@+id/button9" />
 
@@ -172,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="R Throw"
-            android:id="@+id/button11"
+            android:id="@+id/rightThrow"
             android:layout_alignBottom="@+id/button9"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="42dp" />
@@ -182,7 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="R Pickup"
-            android:id="@+id/button12"
+            android:id="@+id/rightPickup"
             android:layout_above="@+id/button10"
             android:layout_alignStart="@+id/button11" />
 
@@ -191,7 +191,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  R Bump "
-            android:id="@+id/button13"
+            android:id="@+id/rightBump"
             android:layout_alignTop="@+id/button14"
             android:layout_alignStart="@+id/button12" />
 
@@ -200,7 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" L Bump  "
-            android:id="@+id/button14"
+            android:id="@+id/leftBump"
             android:layout_below="@+id/button10"
             android:layout_alignParentStart="true" />
 
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="L Throw"
-            android:id="@+id/button15"
+            android:id="@+id/leftThrow"
             android:layout_alignTop="@+id/button11"
             android:layout_alignParentStart="true" />
 
@@ -218,7 +218,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="L Pickup"
-            android:id="@+id/button16"
+            android:id="@+id/leftPickup"
             android:layout_alignTop="@+id/button12"
             android:layout_alignParentStart="true" />
 
@@ -228,7 +228,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Switcher"
-            android:id="@+id/button4"
+            android:id="@+id/switcher"
             android:layout_alignBottom="@+id/toggleButton2"
             android:layout_alignParentEnd="true"
             android:onClick="onButtonClickSwitcher" />
