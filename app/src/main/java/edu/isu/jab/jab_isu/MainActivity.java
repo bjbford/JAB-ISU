@@ -96,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 R.id.leftPickup,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xA9 or 1010 1001 in binary
         irData.put(
                 R.id.leftBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xAC or 1010 1100 in binary
-        
+        irData.put(
+                R.id.dance,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xD4 or 1101 0100 in binary
 
         irInit();
     }
@@ -227,32 +228,32 @@ public class MainActivity extends AppCompatActivity {
     //SECOND TEMPLATE (STATIONARY MOVEMENT)
 
     // LEFT THROW
-    public void onButtonClickLThrow(View V){
+    public void onButtonClickLeftThrow(View V){
         irSend(findViewById(R.id.leftThrow));
         Toast.makeText(MainActivity.this, "LEFT THROWING", Toast.LENGTH_SHORT).show();
     }
     //RIGHT THROW
-    public void onButtonClickRThrow(View V){
+    public void onButtonClickRightThrow(View V){
         irSend(findViewById(R.id.rightThrow));
         Toast.makeText(MainActivity.this, "RIGHT THROWING", Toast.LENGTH_SHORT).show();
     }
     //LEFT PICKUP
-    public void onButtonClickLPickUp(View V){
+    public void onButtonClickLeftPickUp(View V){
         irSend(findViewById(R.id.leftPickup));
         Toast.makeText(MainActivity.this, "LEFT PICKUP", Toast.LENGTH_SHORT).show();
     }
     //RIGHT PICKUP
-    public void onButtonClickRPickUp(View V){
+    public void onButtonClickRightPickUp(View V){
         irSend(findViewById(R.id.rightPickup));
         Toast.makeText(MainActivity.this, "RIGHT PICKUP", Toast.LENGTH_SHORT).show();
     }
     //LEFT BUMP
-    public void onButtonClickLBump(View V){
+    public void onButtonClickLeftBump(View V){
         irSend(findViewById(R.id.leftBump));
         Toast.makeText(MainActivity.this, "LEFT BUMP", Toast.LENGTH_SHORT).show();
     }
     //RIGHT BUMP
-    public void onButtonClickRBump(View V){
+    public void onButtonClickRightBump(View V){
         irSend(findViewById(R.id.rightBump));
         Toast.makeText(MainActivity.this, "RIGHT BUMP", Toast.LENGTH_SHORT).show();
     }
@@ -262,11 +263,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "LEAN FORWARD", Toast.LENGTH_SHORT).show();
     }
     //LEAN BACKWARD
-    public void onButtonClickLeanBack(View V){
+    public void onButtonClickLeanBackward(View V){
         irSend(findViewById(R.id.leanBackward));
         Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
     }
 
     //THIRD TEMPLATE (UTILITIES)
 
+    //DANCE
+    public void onButtonClickDance(View V){
+        irSend(findViewById(R.id.dance));
+        Toast.makeText(MainActivity.this, "DANCE!!", Toast.LENGTH_SHORT).show();
+    }
 }
