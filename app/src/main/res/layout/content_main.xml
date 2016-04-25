@@ -10,134 +10,6 @@
     android:layout_toEndOf="@+id/button8">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="edu.isu.jab.jab_isu.MainActivity"
-        tools:showIn="@layout/activity_main"
-        android:id="@+id/UTLITIES">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Page Right"
-            android:id="@+id/pageRight2"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="50dp"
-            android:onClick="onButtonClickSwitcher" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="      Dance      "
-            android:id="@+id/dance"
-            android:layout_below="@+id/roar"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickDance" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="      Roar      "
-            android:id="@+id/roar"
-            android:layout_alignParentTop="true"
-            android:layout_alignEnd="@+id/pageRight2"
-            android:layout_marginTop="110dp"
-            android:onClick="onButtonClickRoar" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Wake Up  "
-            android:id="@+id/wakeUp"
-            android:layout_above="@+id/dance"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickWakeup" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Sleep     "
-            android:id="@+id/sleep"
-            android:layout_centerVertical="true"
-            android:layout_alignEnd="@+id/wakeUp"
-            android:onClick="onButtonClickSleep" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     Reset      "
-            android:id="@+id/reset"
-            android:layout_alignTop="@+id/sleep"
-            android:layout_alignEnd="@+id/roar"
-            android:nestedScrollingEnabled="false"
-            android:onClick="onButtonClickReset" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   All Demo   "
-            android:id="@+id/allDemo"
-            android:layout_above="@+id/wakeUp"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickAllDemo" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="      RESET      "
-            android:id="@+id/button3"
-            android:onClick="onButtonClickReset"
-            android:layout_above="@+id/pageRight2"
-            android:layout_alignEnd="@+id/allDemo" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   Whislte  "
-            android:id="@+id/button4"
-            android:layout_above="@+id/button3"
-            android:layout_alignParentStart="true"
-            android:onClick="onButtonClickWhistle" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="       Burp       "
-            android:id="@+id/button5"
-            android:layout_alignTop="@+id/button4"
-            android:layout_alignEnd="@+id/dance"
-            android:onClick="onButtonClickBurp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High Five"
-            android:id="@+id/button6"
-            android:layout_alignTop="@+id/button5"
-            android:layout_alignStart="@+id/reset"
-            android:layout_alignEnd="@+id/reset"
-            android:onClick="onButtonClickHighFive" />
-
-    </RelativeLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -211,40 +83,6 @@
                 android:background="#f90707"
                 android:onClick="onButtonClickStop"/>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rightCol">
-
-                <Button
-                    android:layout_width="fill_parent"
-                    android:layout_height="60dp"
-                    android:text="High Five"
-                    android:id="@+id/highFive"
-                    android:onClick="onButtonClickHighFive"/>
-
-                <Button
-                    android:layout_width="80dp"
-                    android:layout_height="128dp"
-                    android:text="Right"
-                    android:id="@+id/buttonTurnRight"
-                    android:layout_marginTop="120dp"
-                    android:layout_marginRight="48dp"
-                    android:background="@drawable/rightarrow"
-                    android:onClick="onButtonClickRight"/>
-
-                <Button
-                    android:layout_width="fill_parent"
-                    android:layout_height="90dp"
-                    android:text="Page Right"
-                    android:id="@+id/pageRight"
-                    android:layout_marginTop="100dp"
-                    android:background="@drawable/pageright"
-                    android:allowUndo="true"
-                    android:onClick="onButtonClickSwitcher" />
-            </LinearLayout>
-
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
@@ -260,6 +98,41 @@
                 android:text="RESET"
                 android:id="@+id/button"
                 android:onClick="onButtonClickReset" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/rightCol"
+            android:layout_gravity="center_vertical">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:text="High Five"
+                android:id="@+id/highFive"
+                android:onClick="onButtonClickHighFive"/>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="128dp"
+                android:text="Right"
+                android:id="@+id/buttonTurnRight"
+                android:layout_marginTop="120dp"
+                android:layout_marginRight="48dp"
+                android:background="@drawable/rightarrow"
+                android:onClick="onButtonClickRight"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="90dp"
+                android:text="Page Right"
+                android:id="@+id/pageRight"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/pageright"
+                android:allowUndo="true"
+                android:onClick="onButtonClickSwitcher" />
         </LinearLayout>
 
     </LinearLayout>
@@ -387,6 +260,134 @@
             android:layout_above="@+id/button17"
             android:layout_centerHorizontal="true"
             android:onClick="onButtonClickReset" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="edu.isu.jab.jab_isu.MainActivity"
+        tools:showIn="@layout/activity_main"
+        android:id="@+id/UTLITIES">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Page Right"
+            android:id="@+id/pageRight2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="50dp"
+            android:onClick="onButtonClickSwitcher" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      Dance      "
+            android:id="@+id/dance"
+            android:layout_below="@+id/roar"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickDance" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      Roar      "
+            android:id="@+id/roar"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/pageRight2"
+            android:layout_marginTop="110dp"
+            android:onClick="onButtonClickRoar" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  Wake Up  "
+            android:id="@+id/wakeUp"
+            android:layout_above="@+id/dance"
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickWakeup" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     Sleep     "
+            android:id="@+id/sleep"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/wakeUp"
+            android:onClick="onButtonClickSleep" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     Reset      "
+            android:id="@+id/reset"
+            android:layout_alignTop="@+id/sleep"
+            android:layout_alignEnd="@+id/roar"
+            android:nestedScrollingEnabled="false"
+            android:onClick="onButtonClickReset" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   All Demo   "
+            android:id="@+id/allDemo"
+            android:layout_above="@+id/wakeUp"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickAllDemo" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      RESET      "
+            android:id="@+id/button3"
+            android:onClick="onButtonClickReset"
+            android:layout_above="@+id/pageRight2"
+            android:layout_alignEnd="@+id/allDemo" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   Whislte  "
+            android:id="@+id/button4"
+            android:layout_above="@+id/button3"
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickWhistle" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="       Burp       "
+            android:id="@+id/button5"
+            android:layout_alignTop="@+id/button4"
+            android:layout_alignEnd="@+id/dance"
+            android:onClick="onButtonClickBurp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Five"
+            android:id="@+id/button6"
+            android:layout_alignTop="@+id/button5"
+            android:layout_alignStart="@+id/reset"
+            android:layout_alignEnd="@+id/reset"
+            android:onClick="onButtonClickHighFive" />
 
     </RelativeLayout>
 
