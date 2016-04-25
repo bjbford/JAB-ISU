@@ -98,6 +98,18 @@ public class MainActivity extends AppCompatActivity {
                 R.id.leftBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xAC or 1010 1100 in binary
         irData.put(
                 R.id.dance,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xD4 or 1101 0100 in binary
+        irData.put(
+                R.id.allDemo,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0021 0021 0fff")); //0xD0 or 1101 0000 in binary
+        irData.put(
+                R.id.reset,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff")); //0xAE or 1010 1110 in binary
+        irData.put(
+                R.id.wakeUp,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xB1 or 1011 0001 in binary
+        irData.put(
+                R.id.sleep,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0082 0021 0fff")); //0xA3 or 1010 0011 in binary
+        irData.put(
+                R.id.roar,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0021 0021 0082 0021 0082 0021 0082 0021 0021 0021 0fff")); //0xCE or 1100 1110 in binary
+        irData.put(
+                R.id.powerButton,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xD1 or 1101 0001 in binary
 
         irInit();
     }
@@ -171,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
     
     //BUTTON METHODS
 
+
     //FIRST TEMPLATE (NAVIGATION)
 
     //STOP
@@ -224,6 +237,12 @@ public class MainActivity extends AppCompatActivity {
             viewFlipper.showPrevious();
         }
     }
+    //POWER OFF
+    public void onButtonClickPowerBtn(View V){
+        irSend(findViewById(R.id.powerButton));
+        Toast.makeText(MainActivity.this, "POWERING OFF...", Toast.LENGTH_SHORT).show();
+    }
+
 
     //SECOND TEMPLATE (STATIONARY MOVEMENT)
 
@@ -270,16 +289,34 @@ public class MainActivity extends AppCompatActivity {
 
     //THIRD TEMPLATE (UTILITIES)
 
-
-
-
-    //DEMO
+    //All DEMO
     public void onButtonClickAllDemo(View V){
-        Toast.makeText(MainActivity.this, "DEMOING!", Toast.LENGTH_SHORT).show();
+        irSend(findViewById(R.id.allDemo));
+        Toast.makeText(MainActivity.this, "DEMOING!!", Toast.LENGTH_SHORT).show();
     }
-
     //WAKE UP
-    public void onButtonClick(View V){
-        Toast.makeText(MainActivity.this, "LEAN BACKWARD", Toast.LENGTH_SHORT).show();
+    public void onButtonClickWakeup(View V){
+        irSend(findViewById(R.id.wakeUp));
+        Toast.makeText(MainActivity.this, "WAKING UP...", Toast.LENGTH_SHORT).show();
+    }
+    //DANCE
+    public void onButtonClickDance(View V){
+        irSend(findViewById(R.id.dance));
+        Toast.makeText(MainActivity.this, "DANCING!", Toast.LENGTH_SHORT).show();
+    }
+    //RESET
+    public void onButtonClickReset(View V){
+        irSend(findViewById(R.id.reset));
+        Toast.makeText(MainActivity.this, "RESETTING ROBOSAPIEN...", Toast.LENGTH_SHORT).show();
+    }
+    //SLEEP
+    public void onButtonClickSleep(View V){
+        irSend(findViewById(R.id.sleep));
+        Toast.makeText(MainActivity.this, "Z.Z.Z.Z......ZZZZ", Toast.LENGTH_SHORT).show();
+    }
+    //ROAR
+    public void onButtonClickRoar(View V){
+        irSend(findViewById(R.id.roar));
+        Toast.makeText(MainActivity.this, "ROOAAARRRR!!", Toast.LENGTH_SHORT).show();
     }
 }
