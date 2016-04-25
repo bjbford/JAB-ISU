@@ -344,7 +344,8 @@
             android:text="   All Demo   "
             android:id="@+id/allDemo"
             android:layout_above="@+id/wakeUp"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickAllDemo" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
