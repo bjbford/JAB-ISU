@@ -90,14 +90,21 @@
                 android:id="@+id/buttonWalkBackward"
                 android:background="@drawable/downarrow"
                 android:onClick="onButtonClickBackward" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RESET"
+                android:id="@+id/button"
+                android:onClick="onButtonClickReset" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/rightCol"
-            android:layout_gravity="center_vertical">
+            android:id="@+id/rightCol">
 
             <Button
                 android:layout_width="fill_parent"
@@ -238,10 +245,20 @@
             android:layout_height="wrap_content"
             android:text="Page Right"
             android:id="@+id/button17"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="50dp"
             android:onClick="onButtonClickSwitcher"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/leanForward" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    RESET    "
+            android:id="@+id/button2"
+            android:layout_above="@+id/button17"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickReset" />
 
     </RelativeLayout>
 
@@ -327,6 +344,16 @@
             android:text="   All Demo   "
             android:id="@+id/allDemo"
             android:layout_above="@+id/wakeUp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    RESET    "
+            android:id="@+id/button3"
+            android:layout_above="@+id/pageRight2"
+            android:layout_centerHorizontal="true" />
             android:layout_centerHorizontal="true"
             android:onClick="onButtonClickAllDemo" />
 
