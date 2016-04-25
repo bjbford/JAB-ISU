@@ -354,7 +354,7 @@
             android:id="@+id/button3"
             android:layout_above="@+id/pageRight2"
             android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickAllDemo" />
+            android:onClick="onButtonClickReset" />
 
     </RelativeLayout>
 
