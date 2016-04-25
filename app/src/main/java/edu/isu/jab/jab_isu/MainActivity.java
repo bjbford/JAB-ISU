@@ -93,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
         irData.put(
                 R.id.leftThrow,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0fff")); //0xAA or 1010 1010 in binary
         irData.put(
-                R.id.leftPickup,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xA9 or 1010 1001 in binary
+                R.id.leftPickup,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xAC or 1010 1100 in binary
         irData.put(
-                R.id.leftBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xAC or 1010 1100 in binary
+                R.id.leftBump,hex2dec("0000 006A 0000 0000 0104 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0082 0021 0fff")); //0xA9 or 1010 1001 in binary
         irData.put(
                 R.id.dance,hex2dec("0000 006A 0000 0000 0104 0082 0021 0082 0021 0021 0021 0082 0021 0021 0021 0082 0021 0021 0021 0021 0021 0fff")); //0xD4 or 1101 0100 in binary
         irData.put(
