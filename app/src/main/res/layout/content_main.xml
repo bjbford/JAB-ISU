@@ -176,7 +176,7 @@
             android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
             android:layout_alignStart="@+id/leanForward"
-            android:onClick="onButtonClickBackward" />
+            android:onClick="onButtonClickLeanBackward" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
