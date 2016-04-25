@@ -43,12 +43,13 @@
             <Button
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:text="ON/OFF"
+                android:text="OFF"
                 android:id="@+id/powerButton"
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="100dp"
-                android:background="#2adf0a" />
+                android:background="#2adf0a"
+                android:onClick="onButtonClickPowerBtn" />
         </LinearLayout>
 
         <LinearLayout
@@ -156,7 +157,8 @@
             android:text="  Lean Forward  "
             android:id="@+id/leanForward"
             android:layout_alignTop="@+id/rightThrow"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickLeanForward" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -166,7 +168,8 @@
             android:id="@+id/leanBackward"
             android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/leanForward" />
+            android:layout_alignStart="@+id/leanForward"
+            android:onClick="onButtonClickBackward" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -175,7 +178,8 @@
             android:text="R Throw"
             android:id="@+id/rightThrow"
             android:layout_above="@+id/rightPickup"
-            android:layout_alignStart="@+id/rightBump" />
+            android:layout_alignStart="@+id/rightBump"
+            android:onClick="onButtonClickRightThrow" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -184,7 +188,8 @@
             android:text="R Pickup"
             android:id="@+id/rightPickup"
             android:layout_above="@+id/leanBackward"
-            android:layout_alignStart="@+id/rightThrow" />
+            android:layout_alignStart="@+id/rightThrow"
+            android:onClick="onButtonClickRightPickUp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -193,7 +198,8 @@
             android:text="  R Bump "
             android:id="@+id/rightBump"
             android:layout_below="@+id/leanBackward"
-            android:layout_alignEnd="@+id/button17" />
+            android:layout_alignEnd="@+id/button17"
+            android:onClick="onButtonClickRightBump" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -202,7 +208,8 @@
             android:text=" L Bump  "
             android:id="@+id/leftBump"
             android:layout_below="@+id/leanBackward"
-            android:layout_alignEnd="@+id/leftThrow" />
+            android:layout_alignEnd="@+id/leftThrow"
+            android:onClick="onButtonClickLeftBump" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -212,7 +219,8 @@
             android:id="@+id/leftThrow"
             android:layout_alignBaseline="@+id/leanForward"
             android:layout_alignBottom="@+id/leanForward"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickLeftThrow" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -221,7 +229,8 @@
             android:text="L Pickup"
             android:id="@+id/leftPickup"
             android:layout_above="@+id/leanBackward"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickLeftPickUp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -266,7 +275,8 @@
             android:text="     Dance     "
             android:id="@+id/dance"
             android:layout_below="@+id/roar"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickDance" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -276,7 +286,8 @@
             android:id="@+id/roar"
             android:layout_alignParentTop="true"
             android:layout_alignEnd="@+id/pageRight2"
-            android:layout_marginTop="110dp" />
+            android:layout_marginTop="110dp"
+            android:onClick="onButtonClickRoar" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -285,7 +296,8 @@
             android:text="  Wake Up  "
             android:id="@+id/wakeUp"
             android:layout_above="@+id/dance"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onButtonClickWakeup" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -294,7 +306,8 @@
             android:text="     Sleep     "
             android:id="@+id/sleep"
             android:layout_centerVertical="true"
-            android:layout_alignEnd="@+id/wakeUp" />
+            android:layout_alignEnd="@+id/wakeUp"
+            android:onClick="onButtonClickSleep" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -303,7 +316,9 @@
             android:text="     Reset      "
             android:id="@+id/reset"
             android:layout_alignTop="@+id/sleep"
-            android:layout_alignEnd="@+id/roar" />
+            android:layout_alignEnd="@+id/roar"
+            android:nestedScrollingEnabled="false"
+            android:onClick="onButtonClickReset" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -312,7 +327,8 @@
             android:text="   All Demo   "
             android:id="@+id/allDemo"
             android:layout_above="@+id/wakeUp"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClickAllDemo" />
 
     </RelativeLayout>
 
