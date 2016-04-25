@@ -37,7 +37,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="     Dance     "
+            android:text="      Dance      "
             android:id="@+id/dance"
             android:layout_below="@+id/roar"
             android:layout_centerHorizontal="true"
@@ -99,11 +99,11 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="      RESET     "
+            android:text="      RESET      "
             android:id="@+id/button3"
+            android:onClick="onButtonClickReset"
             android:layout_above="@+id/pageRight2"
-            android:layout_centerHorizontal="true"
-            android:onClick="onButtonClickReset" />
+            android:layout_alignEnd="@+id/allDemo" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -119,7 +119,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="      Burp      "
+            android:text="       Burp       "
             android:id="@+id/button5"
             android:layout_alignTop="@+id/button4"
             android:layout_alignEnd="@+id/dance"
